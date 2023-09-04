@@ -22,4 +22,6 @@ void calculaResiduo (double **a, double *b, double *x, int tam);
 
 void imprimeMatriz (double **a, double *b, int tam);
 
+void copiaMatriz (double **a, double **a2, double *b, double *b2, int tam);
+
 #endif // ___metodos_h

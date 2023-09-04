@@ -115,3 +115,12 @@ void imprimeMatriz (double **a, double *b, int tam){
         printf ("%lf\n", b[i]);
     }
 }
+
+void copiaMatriz (double **a, double **a2, double *b, double *b2, int tam){
+    for (int i = 0; i < tam; i++){
+        for (int j = 0; j < tam; j++){
+            a2[i][j] = a[i][j];
+        }
+        b2[i] = b[i];
+    }
+}
