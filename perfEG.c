@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "metodos.h"
+#include "utils.h"
 #include <likwid.h>
 
 int main(){
     LIKWID_MARKER_INIT;
-    double **a, **a2, *b, *b2, *x;
+    double **a, **a2, *b, *b2, *x, tempo;
     int tam;
     void (*metodo[3]) (double **, double *, int);
     metodo[0] = gaussComMult;
@@ -26,29 +27,32 @@ int main(){
     for (int i = 0; i<3;i++){
         switch (i){
             case 0:
-                printf ("Gauss com multiplicador\n\n");
-                break;
+                    printf ("Gauss com multiplicador\n\n");
+            break;
             case 1:
                 printf ("Gauss sem multiplicador\n\n");
-                break;
+            break;
             case 2:
                 printf ("Sem pivoteamento\n\n");
-                break;
+            break;
         }
         LIKWID_MARKER_START("metodo");
+        tempo = timestamp();
         metodo[i](a, b, tam);
-        imprimeMatriz (a, b, tam);
+        //imprimeMatriz (a, b, tam);
         retroSub (a, b, x, tam);
+        tempo = timestamp() - tempo;
         printf ("\nSolução:\n\n");
         for (int i = 0; i < tam; i++){
             printf ("%lf ", x[i]);
         }
-        printf ("\n\nResíduo:\n\n");
+        printf ("\n\nTempo: %lf ms\n", tempo);
+        printf ("\nResíduo:\n\n");
         calculaResiduo (a, b, x, tam);
         LIKWID_MARKER_STOP("metodo");
         printf ("\n\n\n");
         copiaMatriz (a2, a, b2, b, tam);
-    }    
+    }   
     free (b);
     free (b2);
     free (x);

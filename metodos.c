@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include "metodos.h"
+#include "utils.h"
 
 void trocaLinhas (double **a, double *b, int i, int pivo){
     double *aux;
@@ -15,7 +17,7 @@ void trocaLinhas (double **a, double *b, int i, int pivo){
 int encontraPivo (double **a, int i, int tam){
     int pivo = i;
     for (int j = i + 1; j < tam; j++){
-        if (a[j][i] > a[pivo][i]){
+        if (fabs(a[j][i]) > fabs(a[pivo][i])){
             pivo = j;
         }
     }
