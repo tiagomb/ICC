@@ -58,7 +58,7 @@ void gaussSemMult (double **a, double *b, int tam){
 
 void semPivo (double **a, double *b, int tam){
     double m;
-    for (int i = 0; i < tam; i++){
+    for (int i = 0; i < tam - 1; i++){
         m = a[i][i];
         for (int j = i; j < tam; j++){
             a[i][j] /= m;

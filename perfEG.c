@@ -36,7 +36,7 @@ int main(){
                 printf ("Sem pivoteamento\n\n");
             break;
         }
-        LIKWID_MARKER_START("metodo");
+        LIKWID_MARKER_START(markerName("metodo",i));
         tempo = timestamp();
         metodo[i](a, b, tam);
         //imprimeMatriz (a, b, tam);
@@ -47,9 +47,9 @@ int main(){
             printf ("%lf ", x[i]);
         }
         printf ("\n\nTempo: %lf ms\n", tempo);
+        LIKWID_MARKER_STOP(markerName("metodo",i));
         printf ("\nResíduo:\n\n");
-        calculaResiduo (a, b, x, tam);
-        LIKWID_MARKER_STOP("metodo");
+        calculaResiduo (a2, b2, x, tam);
         printf ("\n\n\n");
         copiaMatriz (a2, a, b2, b, tam);
     }   
