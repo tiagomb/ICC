@@ -12,7 +12,10 @@ int main(){
     metodo[0] = gaussComMult;
     metodo[1] = gaussSemMult;
     metodo[2] = semPivo;
-    scanf ("%d", &tam);
+    if (scanf ("%d", &tam) != 1){
+        printf ("Erro ao ler o tamanho da matriz\n");
+        exit (1);
+    }
     a = malloc (tam * sizeof (double *));
     a2 = malloc (tam * sizeof (double *));
     for (int i = 0; i < tam; i++){
@@ -27,7 +30,7 @@ int main(){
     for (int i = 0; i<3;i++){
         switch (i){
             case 0:
-                    printf ("Gauss com multiplicador\n\n");
+                printf ("Gauss com multiplicador\n\n");
             break;
             case 1:
                 printf ("Gauss sem multiplicador\n\n");
@@ -42,13 +45,15 @@ int main(){
         //imprimeMatriz (a, b, tam);
         retroSub (a, b, x, tam);
         tempo = timestamp() - tempo;
-        printf ("\nSolução:\n\n");
+        printf ("\nSolução: ");
+        printf ("[ ");
         for (int i = 0; i < tam; i++){
             printf ("%lf ", x[i]);
         }
-        printf ("\n\nTempo: %lf ms\n", tempo);
+        printf ("]\n");
+        printf ("\nTempo: %lf ms\n", tempo);
         LIKWID_MARKER_STOP(markerName("metodo",i));
-        printf ("\nResíduo:\n\n");
+        printf ("\nResíduo: ");
         calculaResiduo (a2, b2, x, tam);
         printf ("\n\n\n");
         copiaMatriz (a2, a, b2, b, tam);

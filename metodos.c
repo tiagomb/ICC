@@ -87,9 +87,15 @@ void retroSub (double **a, double *b, double *x, int tam){
 void leMatriz (double **a, double *b, int tam){
     for (int i = 0; i < tam; i++){
         for (int j = 0; j < tam; j++){
-            scanf ("%lf", &a[i][j]);
+            if (scanf ("%lf", &a[i][j]) != 1){
+                printf ("Erro na leitura da matriz\n");
+                exit (1);
+            }
         }
-        scanf ("%lf", &b[i]);
+        if (scanf ("%lf", &b[i]) != 1){
+            printf ("Erro na leitura da matriz\n");
+            exit (1);
+        }
     }
 }
 
@@ -103,9 +109,11 @@ void calculaResiduo (double **a, double *b, double *x, int tam){
         }
         r[i] -= b[i];
     }
+    printf ("[ ");
     for (int i = 0; i < tam; i++){
-        printf ("%lf\n", r[i]);
+        printf ("%lf ", r[i]);
     }
+    printf ("]\n");
     free (r);
 }
 

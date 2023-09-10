@@ -2,13 +2,14 @@
     PROG = perfEG
 
 # Compilador
+	LIKWID_HOME = /usr/local
     CC     = gcc
-    CFLAGS = -Wall -g -O3 -mavx -march=native -DLIKWID_PERFMON -I/usr/local/include -L/usr/local/lib 
+    CFLAGS = -Wall -g -O3 -mavx -march=native -DLIKWID_PERFMON -I${LIKWID_HOME}/include -L${LIKWID_HOME}/lib 
     LIBS = -llikwid -lm
 
 # Lista de arquivos para distribuição
     DISTFILES = *.c *.h LEIAME* Makefile
-    DISTDIR = `basename ${PWD}`
+    DISTDIR = msac22-tmb22
 
 .PHONY: all clean purge dist
 
