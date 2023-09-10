@@ -42,9 +42,10 @@ int main(){
         LIKWID_MARKER_START(markerName("metodo",i));
         tempo = timestamp();
         metodo[i](a, b, tam);
-        //imprimeMatriz (a, b, tam);
+        imprimeMatriz (a, b, tam);
         retroSub (a, b, x, tam);
         tempo = timestamp() - tempo;
+        LIKWID_MARKER_STOP(markerName("metodo",i));
         printf ("\nSolução: ");
         printf ("[ ");
         for (int i = 0; i < tam; i++){
@@ -52,7 +53,6 @@ int main(){
         }
         printf ("]\n");
         printf ("\nTempo: %lf ms\n", tempo);
-        LIKWID_MARKER_STOP(markerName("metodo",i));
         printf ("\nResíduo: ");
         calculaResiduo (a2, b2, x, tam);
         printf ("\n\n\n");

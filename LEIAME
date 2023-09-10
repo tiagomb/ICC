@@ -12,3 +12,10 @@ Alunos: Matheus Sebastian Alencar de Carvalho (GRR20220065) e Tiago Mendes Botta
 
     -O método sem pivoteamento é bastante suscetível a erros numéricos, principalmente em casos onde o pivô é
     extremamente menor que os elementos abaixo dele.
+
+    -Em caso de overflow, o programa pode apresentar soluções erradas e/ou com resíduos consideráveis.
+
+### Decisões tomadas ###
+
+    -O Likwid foi usado de forma a medir a quantidade de MFLOPs necessárias para a solução, ou seja, mede as operações do
+    método utilizado e da retrosubstituição, desconsiderando o cálculo dos resíduos
