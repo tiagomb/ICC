@@ -17,6 +17,8 @@ Alunos: Matheus Sebastian Alencar de Carvalho (GRR20220065) e Tiago Mendes Botta
 
     -Números muito pequenos podem ser arrendodados para zero, fazendo com que a solução do sistema não seja correta.
 
+    -O coeficientes não são aceitos se forem passados em forma fracionária, como por exemplo 1/2.
+
 ### Decisões tomadas ###
 
     -O Likwid foi usado de forma a medir a quantidade de MFLOPs necessárias para a solução, ou seja, mede as operações do
