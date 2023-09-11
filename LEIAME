@@ -15,6 +15,8 @@ Alunos: Matheus Sebastian Alencar de Carvalho (GRR20220065) e Tiago Mendes Botta
 
     -Em caso de overflow, o programa pode apresentar soluções erradas e/ou com resíduos consideráveis.
 
+    -Números muito pequenos podem ser arrendodados para zero, fazendo com que a solução do sistema não seja correta.
+
 ### Decisões tomadas ###
 
     -O Likwid foi usado de forma a medir a quantidade de MFLOPs necessárias para a solução, ou seja, mede as operações do
